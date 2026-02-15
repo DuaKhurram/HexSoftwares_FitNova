@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitNova | where luxury meets performance</title>
+  <!-- Font Awesome 6 Pro (free) + Remix icons for premium feel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    /* ----- DARK LUXURY THEME (platinum/onyx) with light mode support ----- */
+    body {
+      --bg-deep: #0a0c0f;
+      --bg-surface: #14181c;
+      --bg-card: #1b2126;
+      --bg-card-hover: #232b32;
+      --text-bright: #f0f3f7;
+      --text-soft: #c0ccd9;
+      --text-muted: #8f9fb0;
+      --border-subtle: #2f3a44;
+      --glow-platinum: #d4af37;
+      --glow-platinum-light: #f5d97b;
+      --platinum-gradient: linear-gradient(145deg, #d4af37, #f5e6b3);
+      --shadow-heavy: 0 30px 50px -20px rgba(0,0,0,0.9), 0 0 0 1px rgba(212, 175, 55, 0.1) inset;
+      --shadow-lift: 0 40px 60px -20px #000, 0 0 0 1px rgba(212, 175, 55, 0.3) inset;
+      --font-display: 'Cinzel', 'Inter', serif;
+    }
+
+    body.light {
+      --bg-deep: #edeef0;
+      --bg-surface: #ffffff;
+      --bg-card: #fafbfc;
+      --bg-card-hover: #ffffff;
+      --text-bright: #1c2a36;
+      --text-soft: #2f3f4e;
+      --text-muted: #6f7d8c;
+      --border-subtle: #d0d9e2;
+      --glow-platinum: #b78c4a;
+      --glow-platinum-light: #dbb467;
+      --platinum-gradient: linear-gradient(145deg, #b78c4a, #e6cf9c);
+      --shadow-heavy: 0 30px 50px -20px rgba(0,0,0,0.15), 0 0 0 1px rgba(183,140,74,0.2) inset;
+      --shadow-lift: 0 40px 60px -20px rgba(0,0,0,0.2), 0 0 0 1px rgba(183,140,74,0.3) inset;
+    }
+
+    body {
+      font-family: 'Inter', 'Times New Roman', serif;
+      background-color: var(--bg-deep);
+      color: var(--text-soft);
+      line-height: 1.5;
+      transition: background-color 0.4s ease, color 0.2s ease;
+      font-weight: 300;
+    }
+
+    /* import cinematic serif for headings */
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap');
+
+    h1, h2, h3, .logo, .section-header h2 {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    /* custom platinum scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-surface); }
+    ::-webkit-scrollbar-thumb { background: var(--glow-platinum); border-radius: 20px; box-shadow: inset 0 0 6px #d4af37; }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    section {
+      padding: 7rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .section-header h2 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      background: var(--platinum-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .gold-accent {
+      width: 140px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--glow-platinum), var(--glow-platinum-light), var(--glow-platinum), transparent);
+      margin: 1.2rem auto 1.8rem;
+      border-radius: 4px;
+    }
+
+    /* ----- STUNNING NAVIGATION (onyx glass) ----- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3.5rem;
+      background: rgba(10, 12, 15, 0.7);
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+      box-shadow: 0 10px 30px -15px #000;
+    }
+
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 900;
+      background: var(--platinum-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3.8rem;
+    }
+
+    .nav-links a {
+      color: var(--text-bright);
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 6px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--glow-platinum-light);
+      border-bottom-color: var(--glow-platinum);
+    }
+
+    .theme-toggle {
+      background: var(--bg-card);
+      border: 1px solid var(--glow-platinum);
+      border-radius: 50px;
+      padding: 0.3rem;
+      width: 75px;
+      display: flex;
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 0 12px rgba(212,175,55,0.2);
+    }
+
+    .theme-toggle i {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--glow-platinum);
+      z-index: 2;
+    }
+
+    .toggle-ball {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      background: var(--glow-platinum);
+      border-radius: 50%;
+      top: 3px;
+      left: 3px;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 1;
+    }
+
+    body.light .toggle-ball {
+      transform: translateX(37px);
+    }
+
+    .btn-join {
+      background: transparent;
+      border: 1.5px solid var(--glow-platinum);
+      color: var(--glow-platinum);
+      padding: 0.7rem 2.4rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      letter-spacing: 1px;
+    }
+
+    .btn-join:hover {
+      background: var(--glow-platinum);
+      color: #0a0c0f;
+      box-shadow: 0 0 25px var(--glow-platinum);
+    }
+
+    /* ----- HERO WITH IMPROVED VIDEO VISIBILITY ----- */
+    .hero {
+      position: relative;
+      padding: 0;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      border-bottom: none;
+    }
+
+    #hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: brightness(0.5) contrast(1.3) saturate(1.4); /* Improved visibility */
+    }
+
+    .hero-overlay {
+      width: 100%;
+      background: linear-gradient(120deg, rgba(0,0,0,0.7) 10%, rgba(0,0,0,0.2) 70%); /* Lighter overlay */
+      padding: 7rem 0;
+      backdrop-filter: blur(1px);
+    }
+
+    .hero-content {
+      max-width: 900px;
+      color: white;
+      animation: cinematicReveal 1.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .hero-content h1 {
+      font-size: 6rem;
+      font-weight: 900;
+      line-height: 1;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      background: linear-gradient(to right, #ffffff, #f0e6d2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+.moving-text {
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: var(--glow-platinum-light);
+  margin: 2rem 0 2.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid var(--glow-platinum);
+  width: 0;
+  animation: typing 4.5s steps(45, end) forwards, blink 1s step-end infinite;
+  text-shadow: 0 0 12px rgba(212,175,55,0.6);
+  max-width: 100%;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 750px; }
+}
+
+/* Tablet and mobile fix for moving text */
+@media (max-width: 900px) {
+  .moving-text {
+    font-size: 1.8rem;
+    white-space: normal;
+    animation: none;
+    border-right: none;
+    width: 100%;
+    text-align: center;
+  }
+}
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: var(--glow-platinum); }
+    }
+    @keyframes cinematicReveal {
+      0% { opacity: 0; transform: scale(0.95) translateY(30px); filter: blur(4px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+    }
+
+    .cta-btn {
+      background: var(--glow-platinum);
+      border: none;
+      color: #0a0c0f;
+      padding: 1.2rem 4rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 20px 40px -10px #d4af37, 0 0 0 2px rgba(255,255,240,0.3) inset;
+      transition: 0.3s;
+      letter-spacing: 2px;
+    }
+
+    .cta-btn:hover {
+      background: #f5e2b3;
+      transform: scale(1.04);
+      box-shadow: 0 30px 50px -10px #f5d97b;
+    }
+
+    /* ----- NEW: LIVE FITNESS COUNTERS ----- */
+    .counter-section {
+      background: var(--bg-surface);
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .counter-item {
+      padding: 2rem;
+    }
+
+    .counter-number {
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--glow-platinum);
+      font-family: 'Cinzel', serif;
+      line-height: 1.2;
+    }
+
+    .counter-label {
+      font-size: 1.2rem;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* ----- TRAINER CARDS (ultra luxe hover) ----- */
+    .trainer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .trainer-card {
+      background: var(--bg-card);
+      border-radius: 42px;
+      padding: 2.8rem 2rem;
+      text-align: center;
+      border: 1px solid rgba(212,175,55,0.2);
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+      box-shadow: var(--shadow-heavy);
+      backdrop-filter: blur(8px);
+    }
+
+    .trainer-card:hover {
+      transform: translateY(-20px) scale(1.02);
+      border-color: var(--glow-platinum);
+      box-shadow: var(--shadow-lift), 0 0 30px rgba(212,175,55,0.3);
+      background: var(--bg-card-hover);
+    }
+
+    .trainer-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: var(--platinum-gradient);
+      margin: 0 auto 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: #0a0c0f;
+      border: 4px solid var(--glow-platinum);
+      box-shadow: 0 20px 30px -10px #000;
+      transition: 0.3s;
+    }
+
+    .trainer-card:hover .trainer-img {
+      border-color: white;
+      transform: rotate(4deg) scale(1.02);
+    }
+
+    .trainer-card h3 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-bright);
+    }
+
+    .trainer-specialty {
+      color: var(--glow-platinum);
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      font-size: 1.2rem;
+    }
+
+    .trainer-bio {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* ----- BMI / CALORIE (glassmorphic panels) ----- */
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.8rem;
+      background: rgba(20, 24, 28, 0.7);
+      backdrop-filter: blur(12px);
+      border-radius: 64px;
+      padding: 3.5rem;
+      border: 1px solid rgba(212,175,55,0.3);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .calc-card {
+      background: rgba(10, 12, 15, 0.6);
+      backdrop-filter: blur(6px);
+      border-radius: 48px;
+      padding: 2.8rem;
+      border: 1px solid rgba(212,175,55,0.2);
+    }
+
+    .calc-card h3 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      color: var(--glow-platinum-light);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .input-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-soft);
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border-subtle);
+      border-radius: 60px;
+      color: var(--text-bright);
+      font-size: 1.1rem;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    .input-group input:focus, .input-group select:focus {
+      border-color: var(--glow-platinum);
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
+    }
+
+    .calc-result {
+      background: rgba(0,0,0,0.4);
+      padding: 1.2rem;
+      border-radius: 60px;
+      margin: 2rem 0 1.8rem;
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--glow-platinum);
+      border: 1px solid var(--glow-platinum);
+      box-shadow: inset 0 4px 12px #000;
+    }
+
+    .calc-btn {
+      background: var(--platinum-gradient);
+      border: none;
+      color: #0a0c0f;
+      padding: 1.1rem 0;
+      width: 100%;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.2s;
+      letter-spacing: 1px;
+    }
+
+    .calc-btn:hover {
+      filter: brightness(1.2);
+      box-shadow: 0 0 25px var(--glow-platinum);
+    }
+
+    .unit-toggle {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .unit-btn {
+      flex: 1;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border-subtle);
+      border-radius: 40px;
+      padding: 0.8rem;
+      cursor: pointer;
+      color: var(--text-soft);
+      text-align: center;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .unit-btn.active {
+      background: var(--glow-platinum);
+      color: #111;
+      border-color: var(--glow-platinum);
+    }
+
+    /* ----- MEMBERSHIP COMPARISON (opulent table) ----- */
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 2rem;
+      border-radius: 48px;
+      background: rgba(20, 24, 28, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(212,175,55,0.25);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      min-width: 700px;
+    }
+
+    .pricing-table th {
+      background: var(--glow-platinum);
+      color: #0a0c0f;
+      font-weight: 700;
+      font-size: 1.3rem;
+      padding: 1.8rem 2rem;
+      font-family: 'Cinzel', serif;
+    }
+
+    .pricing-table td {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid rgba(212,175,55,0.15);
+      color: var(--text-soft);
+      font-size: 1.1rem;
+    }
+
+    .pricing-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .pricing-table td:first-child {
+      font-weight: 600;
+      color: var(--text-bright);
+    }
+
+    .pricing-table .highlight {
+      background: rgba(212,175,55,0.1);
+      font-weight: 700;
+      color: var(--glow-platinum-light);
+    }
+
+    /* ----- FAQ ACCORDION (velvet) ----- */
+    .faq-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: rgba(20, 24, 28, 0.5);
+      backdrop-filter: blur(4px);
+      border-radius: 32px;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(212,175,55,0.2);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: var(--text-bright);
+    }
+
+    .faq-question i {
+      color: var(--glow-platinum);
+      transition: transform 0.4s;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      padding: 0 2.5rem;
+      background: rgba(0,0,0,0.2);
+      color: var(--text-muted);
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.3s;
+      font-size: 1.15rem;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding: 1.5rem 2.5rem 2rem;
+    }
+
+    /* ----- TESTIMONIAL CAROUSEL (premium) ----- */
+    .testimonial-carousel {
+      background: rgba(20, 24, 28, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 80px;
+      padding: 4rem 3rem;
+      border: 1px solid rgba(212,175,55,0.3);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .testimonial-slide {
+      display: none;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .testimonial-slide.active {
+      display: block;
+      animation: fade 0.6s;
+    }
+
+    @keyframes fade {
+      from { opacity: 0.2; }
+      to { opacity: 1; }
+    }
+
+    .testimonial-img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--platinum-gradient);
+      margin: 0 auto 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      color: #111;
+      border: 4px solid var(--glow-platinum);
+    }
+
+    .testimonial-text {
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--text-soft);
+      margin-bottom: 1.8rem;
+    }
+
+    .client-name {
+      font-weight: 700;
+      color: var(--glow-platinum);
+      font-size: 1.3rem;
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .carousel-btn {
+      background: transparent;
+      border: 1px solid var(--glow-platinum);
+      color: var(--glow-platinum);
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.4rem;
+      transition: 0.3s;
+    }
+
+    .carousel-btn:hover {
+      background: var(--glow-platinum);
+      color: #111;
+    }
+
+    /* ----- SCHEDULE FILTER ----- */
+    .schedule-filters {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--glow-platinum);
+      color: var(--text-soft);
+      padding: 0.9rem 2.8rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      backdrop-filter: blur(4px);
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--glow-platinum);
+      color: #0a0c0f;
+      border-color: var(--glow-platinum);
+    }
+
+    .schedule-list {
+      background: rgba(20,24,28,0.6);
+      backdrop-filter: blur(6px);
+      border-radius: 48px;
+      padding: 1.8rem;
+      border: 1px solid rgba(212,175,55,0.2);
+    }
+
+    .class-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 2rem;
+      border-bottom: 1px solid rgba(212,175,55,0.1);
+    }
+
+    .class-item:last-child {
+      border-bottom: none;
+    }
+
+    .class-time {
+      font-weight: 700;
+      color: var(--glow-platinum);
+      min-width: 120px;
+      font-size: 1.2rem;
+    }
+
+    .class-name {
+      flex: 2;
+      padding-left: 1.5rem;
+      font-weight: 500;
+      color: var(--text-bright);
+    }
+
+    .class-trainer {
+      color: var(--text-muted);
+      min-width: 140px;
+    }
+
+    /* ----- TRANSFORMATION GALLERY (BEFORE/AFTER SLIDER) ----- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .transform-card {
+      background: var(--bg-card);
+      border-radius: 32px;
+      padding: 2rem;
+      border: 1px solid rgba(212,175,55,0.2);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .slider-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 2px solid var(--glow-platinum);
+    }
+
+    .slider-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .slider-before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 50%;
+      overflow: hidden;
+      z-index: 2;
+      border-right: 3px solid var(--glow-platinum);
+    }
+
+    .slider-before img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left;
+    }
+
+    .slider-after img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slider-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: var(--glow-platinum);
+      transform: translateX(-50%);
+      z-index: 3;
+      cursor: ew-resize;
+      box-shadow: 0 0 15px var(--glow-platinum);
+    }
+
+    .slider-handle::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      background: var(--glow-platinum);
+      border-radius: 50%;
+      box-shadow: 0 0 20px gold;
+    }
+
+    .transform-label {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.2rem;
+      font-weight: 600;
+      color: var(--text-bright);
+    }
+
+    .transform-label span:first-child { color: var(--glow-platinum); }
+    .transform-label span:last-child { color: var(--glow-platinum-light); }
+
+    /* ----- NEW: PERSONAL TRAINING INQUIRY FORM (popup) ----- */
+    .inquiry-btn {
+      background: var(--glow-platinum);
+      border: none;
+      color: #0a0c0f;
+      padding: 1rem 3rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 2rem auto;
+      display: block;
+    }
+
+    .inquiry-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px var(--glow-platinum);
+    }
+
+    .popup-form {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--bg-surface);
+      padding: 3rem;
+      border-radius: 32px;
+      border: 2px solid var(--glow-platinum);
+      box-shadow: var(--shadow-lift);
+      z-index: 1000;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .popup-form.active {
+      display: block;
+      animation: fadeIn 0.3s;
+    }
+
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 999;
+    }
+
+    .popup-overlay.active {
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--glow-platinum);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      background: var(--bg-deep);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      color: var(--text-bright);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--glow-platinum);
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      background: var(--glow-platinum);
+      border: none;
+      color: #0a0c0f;
+      padding: 1rem;
+      width: 100%;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* footer */
+    .footer {
+      text-align: center;
+      padding: 3rem 0;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(212,175,55,0.2);
+    }
+
+    @media (max-width: 1100px) {
+      .trainer-grid, .calculator-grid, .gallery-grid, .counter-grid { grid-template-columns: 1fr; }
+      .hero-content h1 { font-size: 4rem; }
+      .moving-text { font-size: 1.8rem; white-space: normal; animation: none; border-right: none; width: 100%; }
+    }
+  </style>
+</head>
+<body class="dark">
+  <nav class="navbar">
+    <div class="logo">FitNova</div>
+    <div class="nav-links">
+      <a href="#home">HOME</a>
+      <a href="#trainers">TRAINERS</a>
+      <a href="#calculator">BMI/CALC</a>
+      <a href="#transformation">TRANSFORM</a>
+      <a href="#pricing">PRICING</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="theme-toggle" id="themeToggle">
+      <i class="fas fa-sun"></i>
+      <i class="fas fa-moon"></i>
+      <div class="toggle-ball"></div>
+    </div>
+    <button class="btn-join" onclick="openInquiryForm()">BOOK NOW</button>
+  </nav>
+
+  <!-- HERO WITH IMPROVED VIDEO VISIBILITY -->
+  <section class="hero" id="home">
+    <video autoplay muted loop playsinline id="hero-video">
+      <source src="gymbg.mp4" type="video/mp4">
+      <!-- Fallback text if video doesn't load -->
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay">
+      <div class="container hero-content">
+        <h1>SCULPTED BY<br>FIRE & GOLD</h1>
+        <div class="moving-text" id="typewriter">  EXCLUSIVE ELITE TRAINING • UNISEX </div>
+        <button class="cta-btn" onclick="openInquiryForm()">CLAIM FREE SESSION</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW: LIVE FITNESS COUNTERS -->
+  <section class="counter-section">
+    <div class="container">
+      <div class="counter-grid">
+        <div class="counter-item">
+          <div class="counter-number" id="liveClasses">156</div>
+          <div class="counter-label">LIVE CLASSES THIS WEEK</div>
+        </div>
+        <div class="counter-item">
+          <div class="counter-number" id="activeMembers">2,847</div>
+          <div class="counter-label">ACTIVE MEMBERS</div>
+        </div>
+        <div class="counter-item">
+          <div class="counter-number" id="expertCoaches">24</div>
+          <div class="counter-label">EXPERT COACHES</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINER CARDS (LUXURY) -->
+  <section id="trainers">
+    <div class="container">
+      <div class="section-header">
+        <h2>THE ARCHITECTS</h2>
+        <div class="gold-accent"></div>
+              </div>
+      <div class="trainer-grid">
+        <div class="trainer-card">
+          <div class="trainer-img"><i class="fas fa-dumbbell"></i></div>
+          <h3> Irfan Asghar </h3>
+          <div class="trainer-specialty">STRENGTH & CONDITIONING</div>
+          <p class="trainer-bio">10+ years transforming athletes. Power & precision.</p>
+        </div>
+        <div class="trainer-card">
+          <div class="trainer-img"><i class="fas fa-person-walking"></i></div>
+          <h3>Hassan Mehmood</h3>
+          <div class="trainer-specialty">PERFORMANCE & MOBILITY</div>
+          <p class="trainer-bio">Former D1 coach, movement architect.</p>
+        </div>
+        <div class="trainer-card">
+          <div class="trainer-img"><i class="fas fa-heart-pulse"></i></div>
+          <h3>Dr. Aisha K.</h3>
+          <div class="trainer-specialty">RECOVERY & NUTRITION</div>
+          <p class="trainer-bio">PhD, data-driven recovery & optimization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BMI / CALORIE (LUXE GLASS) -->
+  <section id="calculator">
+    <div class="container">
+      <div class="section-header">
+        <h2>PERFORMANCE METRICS</h2>
+        <div class="gold-accent"></div>
+    
+      </div>
+      <div class="calculator-grid">
+        <!-- BMI calculator -->
+        <div class="calc-card">
+          <h3><i class="fas fa-calculator"></i> BMI</h3>
+          <div class="unit-toggle" id="bmiUnitToggle">
+            <button class="unit-btn active" data-unit="metric">Metric</button>
+            <button class="unit-btn" data-unit="imperial">Imperial</button>
+          </div>
+          <div class="input-group" id="bmiMetric">
+            <label>Weight (kg)</label>
+            <input type="number" id="weightMetric" value="72" step="0.1">
+            <label>Height (cm)</label>
+            <input type="number" id="heightMetric" value="175" step="0.1">
+          </div>
+          <div class="input-group" id="bmiImperial" style="display: none;">
+            <label>Weight (lbs)</label>
+            <input type="number" id="weightLbs" value="158" step="0.1">
+            <label>Height (ft)</label>
+            <input type="number" id="heightFt" value="5" step="0.1">
+            <label>Height (in)</label>
+            <input type="number" id="heightIn" value="9" step="0.1">
+          </div>
+          <div class="calc-result" id="bmiResult">23.5</div>
+          <button class="calc-btn" id="calcBmiBtn">CALCULATE BMI</button>
+        </div>
+        <!-- Calorie calculator -->
+        <div class="calc-card">
+          <h3><i class="fas fa-fire"></i> MAINTENANCE CAL</h3>
+          <div class="input-group">
+            <label>Age (years)</label>
+            <input type="number" id="age" value="28" step="1">
+          </div>
+          <div class="unit-toggle" id="calUnitToggle">
+            <button class="unit-btn active" data-unit="metric">Metric</button>
+            <button class="unit-btn" data-unit="imperial">Imperial</button>
+          </div>
+          <div id="calMetric">
+            <div class="input-group"><label>Weight (kg)</label><input type="number" id="calWeightKg" value="72"></div>
+            <div class="input-group"><label>Height (cm)</label><input type="number" id="calHeightCm" value="175"></div>
+          </div>
+          <div id="calImperial" style="display: none;">
+            <div class="input-group"><label>Weight (lbs)</label><input type="number" id="calWeightLbs" value="158"></div>
+            <div class="input-group"><label>Height (ft)</label><input type="number" id="calHeightFt" value="5"></div>
+            <div class="input-group"><label>Height (in)</label><input type="number" id="calHeightIn" value="9"></div>
+          </div>
+          <div class="input-group"><label>Gender</label>
+            <select id="gender">
+              <option value="male">Male</option><option value="female">Female</option>
+            </select>
+          </div>
+          <div class="calc-result" id="calorieResult">~2350 kcal</div>
+          <button class="calc-btn" id="calcCalBtn">CALCULATE CALORIES</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSFORMATION GALLERY (BEFORE/AFTER SLIDER) -->
+  <section id="transformation">
+    <div class="container">
+      <div class="section-header">
+        <h2>REAL TRANSFORMATIONS</h2>
+        <div class="gold-accent"></div>
+       
+      </div>
+      <div class="gallery-grid">
+        <!-- Transformation 1 -->
+        <div class="transform-card">
+          <div class="slider-container" id="slider1">
+            <div class="slider-after">
+              <img src="after1.png" alt="after">
+            </div>
+            <div class="slider-before" style="width: 50%;">
+              <img src="before1.png" alt="before">
+            </div>
+            <div class="slider-handle"></div>
+          </div>
+          <div class="transform-label">
+            <span>BEFORE</span>
+            <span>AFTER</span>
+          </div>
+          <p style="text-align: center; margin-top: 1rem; color: var(--glow-platinum);">Marcus · 12 weeks</p>
+        </div>
+        <!-- Transformation 2 -->
+        <div class="transform-card">
+          <div class="slider-container" id="slider2">
+            <div class="slider-after">
+              <img src="after2.png" alt="after">
+            </div>
+            <div class="slider-before" style="width: 50%;">
+              <img src="before2.png" alt="before">
+            </div>
+            <div class="slider-handle"></div>
+          </div>
+          <div class="transform-label">
+            <span>BEFORE</span>
+            <span>AFTER</span>
+          </div>
+          <p style="text-align: center; margin-top: 1rem; color: var(--glow-platinum);">Lena · 16 weeks</p>
+        </div>
+        <!-- Transformation 3 -->
+        <div class="transform-card">
+          <div class="slider-container" id="slider3">
+            <div class="slider-after">
+              <img src="after3.png" alt="after">
+            </div>
+            <div class="slider-before" style="width: 50%;">
+              <img src="before3.png" alt="before">
+            </div>
+            <div class="slider-handle"></div>
+          </div>
+          <div class="transform-label">
+            <span>BEFORE</span>
+            <span>AFTER</span>
+          </div>
+          <p style="text-align: center; margin-top: 1rem; color: var(--glow-platinum);">David · 20 weeks</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING COMPARISON (OPULENT) -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2>MEMBERSHIP COMPARISON</h2>
+        <div class="gold-accent"></div>
+       
+      </div>
+      <div class="table-wrapper">
+        <table class="pricing-table">
+          <thead>
+            <tr><th>Feature</th><th>CORE</th><th>ELITE</th><th>HYBRID</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Access hours</td><td>6am–10pm</td><td>24/7</td><td>24/7</td></tr>
+            <tr><td>Group classes</td><td>2 per week</td><td>Unlimited</td><td>Unlimited</td></tr>
+            <tr><td>PT sessions/month</td><td>1</td><td>4</td><td>8</td></tr>
+            <tr><td>Recovery area</td><td>–</td><td>✓</td><td>✓</td></tr>
+            <tr><td>Nutrition coaching</td><td>–</td><td>–</td><td>✓</td></tr>
+            <tr class="highlight"><td>Monthly price</td><td>$49</td><td>$89</td><td>$119</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ VELVET -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header">
+        <h2>DISCERNING QUESTIONS</h2>
+        <div class="gold-accent"></div>
+       
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-question">Can I freeze my membership? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Yes, you can freeze for up to 3 months per year. Minimum freeze period is 2 weeks.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Are there any hidden fees? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">No. All taxes and fees are included. No enrollment or cancellation fees.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Do you offer family plans? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Yes, we have family packages. Contact our support for custom pricing.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL CAROUSEL -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <h2>SUCCESS STORIES</h2>
+        <div class="gold-accent"></div>
+       
+      </div>
+      <div class="testimonial-carousel">
+        <div class="testimonial-slide active">
+          <div class="testimonial-img"><i class="fas fa-user"></i></div>
+          <div class="testimonial-text">“I lost 18lbs in 3 months and gained so much strength. The coaches are incredible.”</div>
+          <div class="client-name">— Sarah K., member since 2024</div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-img"><i class="fas fa-user-tie"></i></div>
+          <div class="testimonial-text">“The recovery area and 24/7 access fit my schedule perfectly. Elite facility.”</div>
+          <div class="client-name">— David M., hybrid member</div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-img"><i class="fas fa-user-nurse"></i></div>
+          <div class="testimonial-text">“As a former athlete, I needed high-level training. Axis delivered.”</div>
+          <div class="client-name">— James T., strength athlete</div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prevTestimonial"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn" id="nextTestimonial"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASS SCHEDULE FILTER -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <h2>WEEKLY SCHEDULE</h2>
+        <div class="gold-accent"></div>
+        
+      </div>
+      <div class="schedule-filters" id="scheduleFilters">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="strength">STRENGTH</button>
+        <button class="filter-btn" data-filter="hiit">HIIT</button>
+        <button class="filter-btn" data-filter="recovery">RECOVERY</button>
+      </div>
+      <div class="schedule-list" id="scheduleList">
+        <div class="class-item" data-category="strength"><span class="class-time">07:00 AM</span><span class="class-name">Powerlifting</span><span class="class-trainer">Marcus</span></div>
+        <div class="class-item" data-category="hiit"><span class="class-time">09:00 AM</span><span class="class-name">MetCon Blast</span><span class="class-trainer">Lena</span></div>
+        <div class="class-item" data-category="strength"><span class="class-time">12:00 PM</span><span class="class-name">Functional Strength</span><span class="class-trainer">Marcus</span></div>
+        <div class="class-item" data-category="recovery"><span class="class-time">04:00 PM</span><span class="class-name">Mobility & Stretch</span><span class="class-trainer">Aisha</span></div>
+        <div class="class-item" data-category="hiit"><span class="class-time">06:00 PM</span><span class="class-name">HIIT & Core</span><span class="class-trainer">Lena</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW: PERSONAL TRAINING INQUIRY BUTTON -->
+  <div style="text-align: center; padding: 2rem 0;">
+    <button class="inquiry-btn" onclick="openInquiryForm()">📅 BOOK PERSONAL CONSULTATION</button>
+  </div>
+
+  <!-- NEW: POPUP FORM -->
+  <div class="popup-overlay" id="popupOverlay" onclick="closeInquiryForm()"></div>
+  <div class="popup-form" id="popupForm">
+    <button class="close-btn" onclick="closeInquiryForm()">&times;</button>
+    <h2 style="color: var(--glow-platinum); margin-bottom: 2rem;">PERSONAL TRAINING INQUIRY</h2>
+    <form id="inquiryForm" onsubmit="submitForm(event)">
+      <div class="form-group">
+        <label>FULL NAME</label>
+        <input type="text" required>
+      </div>
+      <div class="form-group">
+        <label>EMAIL</label>
+        <input type="email" required>
+      </div>
+      <div class="form-group">
+        <label>PHONE</label>
+        <input type="tel" required>
+      </div>
+      <div class="form-group">
+        <label>FITNESS GOAL</label>
+        <select required>
+          <option>Weight Loss</option>
+          <option>Muscle Gain</option>
+          <option>Strength Training</option>
+          <option>General Fitness</option>
+          <option>Recovery & Mobility</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>PREFERRED TIME</label>
+        <select required>
+          <option>Morning (6am-9am)</option>
+          <option>Mid-day (9am-3pm)</option>
+          <option>Evening (3pm-8pm)</option>
+          <option>Weekend</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-btn">SUBMIT INQUIRY</button>
+    </form>
+  </div>
+
+  <footer class="footer">
+    <p> © 2026 FitNova — 10th Commercial Lane, Zamzama, Karachi — (021) 3587 6543 — PLATINUM SINCE 2015 </p>
+  </footer>
+
+  <script>
+    (function() {
+      // ----- THEME TOGGLE (light/dark) -----
+      const toggle = document.getElementById('themeToggle');
+      const body = document.body;
+      toggle.addEventListener('click', () => {
+        body.classList.toggle('light');
+      });
+
+      // ----- LIVE COUNTERS (simulated updates) -----
+      function updateCounters() {
+        const classes = document.getElementById('liveClasses');
+        const members = document.getElementById('activeMembers');
+        const coaches = document.getElementById('expertCoaches');
+        
+        // Simulate live updates
+        setInterval(() => {
+          const newClasses = 156 + Math.floor(Math.random() * 10);
+          const newMembers = 2847 + Math.floor(Math.random() * 50);
+          classes.style.opacity = '0.5';
+          members.style.opacity = '0.5';
+          setTimeout(() => {
+            classes.textContent = newClasses;
+            members.textContent = newMembers;
+            classes.style.opacity = '1';
+            members.style.opacity = '1';
+          }, 200);
+        }, 30000);
+      }
+      updateCounters();
+
+      // ----- BMI CALCULATOR (unit toggle) -----
+      const bmiMetricDiv = document.getElementById('bmiMetric');
+      const bmiImperialDiv = document.getElementById('bmiImperial');
+      const bmiUnitBtns = document.querySelectorAll('#bmiUnitToggle .unit-btn');
+      const calcBmiBtn = document.getElementById('calcBmiBtn');
+      const bmiResultSpan = document.getElementById('bmiResult');
+
+      function setBmiUnit(unit) {
+        bmiUnitBtns.forEach(btn => {
+          btn.classList.remove('active');
+          if (btn.dataset.unit === unit) btn.classList.add('active');
+        });
+        if (unit === 'metric') {
+          bmiMetricDiv.style.display = 'block';
+          bmiImperialDiv.style.display = 'none';
+        } else {
+          bmiMetricDiv.style.display = 'none';
+          bmiImperialDiv.style.display = 'block';
+        }
+      }
+      bmiUnitBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => setBmiUnit(e.target.dataset.unit));
+      });
+      function computeBMI() {
+        let bmi = 0;
+        const activeUnit = document.querySelector('#bmiUnitToggle .unit-btn.active')?.dataset.unit || 'metric';
+        if (activeUnit === 'metric') {
+          const kg = parseFloat(document.getElementById('weightMetric').value) || 0;
+          const cm = parseFloat(document.getElementById('heightMetric').value) || 1;
+          if (kg > 0 && cm > 0) bmi = kg / ((cm/100) ** 2);
+        } else {
+          const lbs = parseFloat(document.getElementById('weightLbs').value) || 0;
+          const ft = parseFloat(document.getElementById('heightFt').value) || 0;
+          const inch = parseFloat(document.getElementById('heightIn').value) || 0;
+          const totalInches = ft * 12 + inch;
+          if (lbs > 0 && totalInches > 0) bmi = (lbs / (totalInches ** 2)) * 703;
+        }
+        bmiResultSpan.innerText = bmi.toFixed(1) || '0.0';
+      }
+      calcBmiBtn.addEventListener('click', computeBMI);
+
+      // ----- CALORIE CALCULATOR (Mifflin‑St Jeor) -----
+      const calMetricDiv = document.getElementById('calMetric');
+      const calImperialDiv = document.getElementById('calImperial');
+      const calUnitBtns = document.querySelectorAll('#calUnitToggle .unit-btn');
+      const calcCalBtn = document.getElementById('calcCalBtn');
+      const calorieResult = document.getElementById('calorieResult');
+
+      function setCalUnit(unit) {
+        calUnitBtns.forEach(btn => {
+          btn.classList.remove('active');
+          if (btn.dataset.unit === unit) btn.classList.add('active');
+        });
+        if (unit === 'metric') {
+          calMetricDiv.style.display = 'block';
+          calImperialDiv.style.display = 'none';
+        } else {
+          calMetricDiv.style.display = 'none';
+          calImperialDiv.style.display = 'block';
+        }
+      }
+      calUnitBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => setCalUnit(e.target.dataset.unit));
+      });
+      function computeCalories() {
+        const age = parseFloat(document.getElementById('age').value) || 30;
+        const gender = document.getElementById('gender').value;
+        const unit = document.querySelector('#calUnitToggle .unit-btn.active')?.dataset.unit || 'metric';
+        let weightKg, heightCm;
+        if (unit === 'metric') {
+          weightKg = parseFloat(document.getElementById('calWeightKg').value) || 70;
+          heightCm = parseFloat(document.getElementById('calHeightCm').value) || 170;
+        } else {
+          const lbs = parseFloat(document.getElementById('calWeightLbs').value) || 154;
+          const ft = parseFloat(document.getElementById('calHeightFt').value) || 5;
+          const inch = parseFloat(document.getElementById('calHeightIn').value) || 7;
+          weightKg = lbs * 0.453592;
+          heightCm = ((ft * 12) + inch) * 2.54;
+        }
+        let bmr = (gender === 'male') 
+          ? (10 * weightKg) + (6.25 * heightCm) - (5 * age) + 5
+          : (10 * weightKg) + (6.25 * heightCm) - (5 * age) - 161;
+        calorieResult.innerText = `~${Math.round(bmr * 1.375)} kcal`;
+      }
+      calcCalBtn.addEventListener('click', computeCalories);
+
+      // ----- FAQ ACCORDION -----
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+          q.parentElement.classList.toggle('active');
+        });
+      });
+
+      // ----- TESTIMONIAL CAROUSEL -----
+      const slides = document.querySelectorAll('.testimonial-slide');
+      let currentSlide = 0;
+      const nextBtn = document.getElementById('nextTestimonial');
+      const prevBtn = document.getElementById('prevTestimonial');
+      if (nextBtn && prevBtn) {
+        nextBtn.addEventListener('click', () => {
+          slides[currentSlide].classList.remove('active');
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.add('active');
+        });
+        prevBtn.addEventListener('click', () => {
+          slides[currentSlide].classList.remove('active');
+          currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+          slides[currentSlide].classList.add('active');
+        });
+      }
+
+      // ----- SCHEDULE FILTER -----
+      const filterBtns = document.querySelectorAll('#scheduleFilters .filter-btn');
+      const classItems = document.querySelectorAll('#scheduleList .class-item');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          classItems.forEach(item => {
+            item.style.display = (filter === 'all' || item.dataset.category === filter) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      // ----- TRANSFORMATION SLIDERS (drag to compare) -----
+      function initSlider(sliderId) {
+        const container = document.getElementById(sliderId);
+        if (!container) return;
+        const beforeDiv = container.querySelector('.slider-before');
+        const handle = container.querySelector('.slider-handle');
+        let isDragging = false;
+
+        const updatePosition = (x) => {
+          const rect = container.getBoundingClientRect();
+          let pos = (x - rect.left) / rect.width;
+          pos = Math.max(0, Math.min(1, pos));
+          beforeDiv.style.width = `${pos * 100}%`;
+          handle.style.left = `${pos * 100}%`;
+        };
+
+        handle.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          e.preventDefault();
+        });
+
+        window.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          updatePosition(e.clientX);
+        });
+
+        window.addEventListener('mouseup', () => {
+          isDragging = false;
+        });
+
+        // touch support
+        handle.addEventListener('touchstart', (e) => {
+          isDragging = true;
+          e.preventDefault();
+        });
+
+        window.addEventListener('touchmove', (e) => {
+          if (!isDragging || !e.touches[0]) return;
+          updatePosition(e.touches[0].clientX);
+        });
+
+        window.addEventListener('touchend', () => {
+          isDragging = false;
+        });
+      }
+
+      initSlider('slider1');
+      initSlider('slider2');
+      initSlider('slider3');
+
+      // initial calculations
+      computeBMI();
+      computeCalories();
+
+      // restart typewriter effect
+      const typeEl = document.getElementById('typewriter');
+      setTimeout(() => {
+        typeEl.style.animation = 'none';
+        typeEl.offsetHeight;
+        typeEl.style.animation = 'typing 4.5s steps(45, end) forwards, blink 1s step-end infinite';
+      }, 200);
+    })();
+
+    // ----- POPUP FORM FUNCTIONS -----
+    function openInquiryForm() {
+      document.getElementById('popupOverlay').classList.add('active');
+      document.getElementById('popupForm').classList.add('active');
+    }
+
+    function closeInquiryForm() {
+      document.getElementById('popupOverlay').classList.remove('active');
+      document.getElementById('popupForm').classList.remove('active');
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      alert('Thank you! Our concierge will contact you within 24 hours.');
+      closeInquiryForm();
+    }
+  </script>
+</body>
+</html>
